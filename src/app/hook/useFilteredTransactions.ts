@@ -10,6 +10,6 @@ export function useFilteredTransactions(transactions: Transaction[]) {
   return {
     searchTerm,
     setSearchTerm,
-    filteredData: filteredTransactions
+    filteredTransactions
   };
 }
