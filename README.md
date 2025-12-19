@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lydia Front-End Technical Test
 
-## Getting Started
+## 🧾 Overview
 
-First, run the development server:
+This project is a front-end technical test for **Lydia**.  
+The goal is to build a **Single Page Application (SPA)** that allows users to search through a list of transactions by their **label**.
+
+The application is built with **React (Next.js)** and focuses on:
+
+- clean architecture
+- good UX
+- clear separation of concerns
+- readable and maintainable code
+
+---
+
+## 🎯 Features
+
+- 🔍 Search transactions by label
+- ⚡ Real-time filtering while typing
+- 🔤 Case-insensitive search
+- 🚫 Graceful handling of “No results found”
+- ✏️ User can always edit the search (no blocking state)
+- 🎨 Simple, clean, and readable UI
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** (Next.js – App Router)
+- **TypeScript**
+- **CSS**
+- **JSON** as a mock data source
+
+---
+
+## 🧠 Architecture & Design Choices
+
+### 1️⃣ Separation of concerns
+
+- **UI components** handle rendering only  
+  (e.g. `SearchBar`)
+- **Business logic** is extracted into a custom hook  
+  (`useFilteredTransactions`)
+- The page component (`Home`) orchestrates data and UI
+
+This keeps components simple and improves readability.
+
+---
+
+### 2️⃣ Custom Hook (`useFilteredTransactions`)
+
+A custom hook is used to:
+
+- manage the search state
+- compute filtered transactions
+- keep the page component lightweight
+
+> The hook returns data only and does not handle UI decisions.
+
+---
+
+### 3️⃣ UX decisions
+
+- The search input is always visible
+- “No results found” is treated as a **normal user state**, not an error
+- No exceptions are thrown for empty results
+- Feedback is immediate and non-blocking
+
+---
+
+### 4️⃣ TypeScript usage
+
+- A `Transaction` type defines the data contract
+- JSON data is explicitly typed to ensure consistency
+- Types reflect real data rather than forcing the data to match the type
+
+---
+
+## 🚀 Getting Started
+
+### Install dependencies
 
 ```bash
+npm install
+
+Run the project locally
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+
+The app will be available at:
+👉 http://localhost:3000
+
+📦 Project Structure (simplified)
+src/
+ ├─ app/
+ │   ├─ page.tsx
+ │   ├─ transaction.json
+ │   ├─ hook/
+ │   │   └─ useFilteredTransactions.ts
+ │   ├─ components/
+ │   │   └─ SearchBar.tsx
+ │   └─ types/
+ │       └─ transaction.ts
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
