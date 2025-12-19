@@ -15,9 +15,14 @@ export default function Home() {
         Labels search
       </h1>
       <SearchBar value={searchTerm} onChange={setSearchTerm} />
-      <ul className="rounded-xl p-4 transition duration-200 cursor-pointer hover:shadow-md hover:bg-gray-50 mt-4 max-w-md mx-auto">
+      <ul className="rounded-xl p-4  mt-4 max-w-md mx-auto">
         {filteredData.map((item) => (
-          <li key={item.memberId}>{item.label}</li>
+          <li
+            className="transition duration-200 cursor-pointer hover:shadow-md hover:bg-gray-400 rounded-lg p-2 mb-2"
+            key={item.memberId}
+          >
+            {item.label}
+          </li>
         ))}
         {filteredData.length === 0 && (
           <li className="text-center text-red-500">No results found.</li>
