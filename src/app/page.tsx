@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div>
       <h1 className="text-3xl font-poppins mb-4 text-center mt-8">
-        Labels search
+        Transaction Labels
       </h1>
       <SearchBar value={searchTerm} onChange={setSearchTerm} />
       <ul className="rounded-xl p-4  mt-4 max-w-md mx-auto">
