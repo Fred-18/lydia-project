@@ -3,6 +3,7 @@ import SearchBar from "./components/searchBar/SearchBar";
 import { useFilteredTransactions } from "./hook/useFilteredTransactions";
 import { Transaction } from "./types/transaction";
 import transaction from "./transaction.json";
+import { statuesRules } from "../../public/statuesRules";
 
 export default function Home() {
   const typedTransactions = transaction as Transaction[];
@@ -15,10 +16,13 @@ export default function Home() {
         Transaction Labels
       </h1>
       <SearchBar value={searchTerm} onChange={setSearchTerm} />
-      <ul className="rounded-xl p-4  mt-4 max-w-md mx-auto">
+      <ul className="rounded-xl p-5  mt-4 max-w-md mx-auto">
         {filteredTransactions.map((item) => (
           <li
-            className="transition duration-200 cursor-pointer hover:shadow-md hover:bg-gray-400 rounded-lg p-2 mb-2"
+            className={
+              statuesRules[item.status as keyof typeof statuesRules] +
+              " mb-2 p-3 rounded-lg font-medium cursor-pointer hover:scale-105 transition-transform"
+            }
             key={item.memberId}
           >
             {item.label}
