@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Transaction } from "../types/transaction";
+import { Transaction } from "../types/transactionTypes";
 
 export function useFilteredTransactions(transactions: Transaction[]) {
   const [searchTerm, setSearchTerm] = useState("");
