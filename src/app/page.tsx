@@ -1,7 +1,7 @@
 "use client";
 import SearchBar from "./components/searchBar/SearchBar";
 import { useFilteredTransactions } from "./hook/useFilteredTransactions";
-import { Transaction } from "./types/transaction";
+import { Transaction } from "./types/transactionTypes";
 import transaction from "./transaction.json";
 import { statuesRules } from "../../statuesRules";
 import Modal from "./components/modal/modal";
@@ -42,7 +42,6 @@ export default function Home() {
       <Modal
         isOpen={isOpen}
         onClose={() => setOpenModal(false)}
-        children={undefined}
       ></Modal>
     </div>
   );
