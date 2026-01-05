@@ -3,8 +3,8 @@ export type Transaction = {
   memberId?: number;
   status?: string;
   amount?: string;
-  date?: number;
+  date: number;
   paymentId?: string;
-  firstName?: string;
-  lastName?: string;
+  firstname?: string;
+  lastname?: string;
 };
