@@ -22,6 +22,9 @@ The application is built with **React (Next.js)** and focuses on:
 - 🚫 Graceful handling of “No results found”
 - ✏️ User can always edit the search (no blocking state)
 - 🎨 Simple, clean, and readable UI
+- 🪟 Transaction details displayed in a modal
+- 🎨 Visual status indicator (completed / pending / canceled)
+- ⌨️ Modal can be closed with Escape or outside click
 
 ---
 
@@ -39,7 +42,7 @@ The application is built with **React (Next.js)** and focuses on:
 ### 1️⃣ Separation of concerns
 
 - **UI components** handle rendering only  
-  (e.g. `SearchBar`)
+  (e.g. `SearchBar,Modal`)
 - **Business logic** is extracted into a custom hook  
   (`useFilteredTransactions`)
 - The page component (`Home`) orchestrates data and UI
@@ -66,6 +69,9 @@ A custom hook is used to:
 - “No results found” is treated as a **normal user state**, not an error
 - No exceptions are thrown for empty results
 - Feedback is immediate and non-blocking
+- The UI never blocks user input
+- Transaction details are shown in a modal for better readability
+- Status colors are centralized to ensure UI consistency
 
 ---
 
@@ -90,9 +96,9 @@ npm run dev
 
 
 The app will be available at:
-👉 http://localhost:3000
+👉 http://localhost:3000 or with https://lydia-project-pi.vercel.app/
 
-📦 Project Structure (simplified)
+📦 Project Structure
 src/
  ├─ app/
  │   ├─ page.tsx
@@ -100,7 +106,9 @@ src/
  │   ├─ hook/
  │   │   └─ useFilteredTransactions.ts
  │   ├─ components/
- │   │   └─ SearchBar.tsx
+ │   │   ├─ SearchBar/
+ │   │   ├─ Modal/
+ │   │   └─ TransactionDetails/
  │   └─ types/
- │       └─ transaction.ts
+ │       └─ transactionTypes.ts
 ```
